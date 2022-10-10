@@ -1,11 +1,11 @@
 .card{
     background-color: #570A57;
 }
-.card-details{
+/* .card-details{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .btn{
     background-color: #A91079;
     color: white;

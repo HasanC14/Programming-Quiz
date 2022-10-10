@@ -1,18 +1,21 @@
 import React from "react";
 
 const Question = ({ quiz_question }) => {
-  console.log(quiz_question);
   const { options, correctAnswer, id, question } = quiz_question;
-  //   console.log(options);
-  const strOptions = JSON.stringify(options);
-  //   console.log(strOptions);
-  const newOptions = strOptions.replace(/(<([^>]+)>)/gi, "");
+
+  const newQuestion = question.replace(/(<([^>]+)>)/gi, "");
   return (
     <div>
-      <p className="font-bold">question{question}</p>
-      {/* <p>{newOptions}</p> */}
-      {/* <p>{strOptions}</p> */}
-      {/* {(options.map = (option) => console.log(option))} */}
+      <p className="font-bold">Q. {newQuestion}</p>
+      {Object.values(options).map((value, index) => {
+        return (
+          <div key={index}>
+            <p>
+              {index + 1}.{value}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };
