@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Blog from "./Component/Blog/Blog";
 import Home from "./Component/Home/Home";
+import Quiz from "./Component/Quiz/Quiz";
 import Statistics from "./Component/Statistics/Statistics";
 import Main from "./Layout/Main";
 
@@ -13,10 +14,20 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home></Home>,
+
           loader: async () => {
-            return fetch("https://jsonplaceholder.typicode.com/users");
+            return fetch("https://openapi.programming-hero.com/api/quiz");
           },
+          element: <Home></Home>,
+        },
+        {
+          path: "/quiz/:id",
+          loader: async ({ params }) => {
+            return fetch(
+              `https://openapi.programming-hero.com/api/quiz/${params.id}`
+            );
+          },
+          element: <Quiz></Quiz>,
         },
         { path: "/statistics", element: <Statistics></Statistics> },
         { path: "/blog", element: <Blog></Blog> },
