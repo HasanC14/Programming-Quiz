@@ -1,24 +1,49 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
 import "./Question.css";
 
 const Question = ({ quiz_question }) => {
   const { options, correctAnswer, id, question } = quiz_question;
-  const [option, setOption] = useState();
+  const [option, setOption] = useState([]);
   const newQuestion = question.replace(/(<([^>]+)>)/gi, "");
   const Correct = () => {
-    // toast(`${option} is a Correct Answer`);
-    const customId = "custom-id-yes";
+    // toast(`${correctAnswer} is The Correct Answer`);
+    const Id = "id";
     toast("Correct Answer", {
-      toastId: customId,
+      toastId: Id,
     });
   };
+  const Incorrect = () => {
+    // toast(`${option} is The Correct Answer`);
+    const Id = "id";
+    toast("Incorrect Answer Try Again", {
+      toastId: Id,
+    });
+  };
+  const Select = () => {
+    const Id = "id";
+    toast("Click on the Check Mark to see the Correct Answer", {
+      toastId: Id,
+    });
+  };
+  const DisplayCorrectAns = () => {
+    toast(`Correct Answer: ${correctAnswer}`);
+  };
+
   return (
     <div>
-      <p className="font-bold md:text-3xl sm:text-2xl mt-5 mb-5">
-        Q. {newQuestion}
-      </p>
+      <div className="question_icon">
+        <p className="font-bold md:text-3xl sm:text-2xl mt-5 mb-5">
+          Q. {newQuestion}{" "}
+          <button onClick={DisplayCorrectAns}>
+            <FontAwesomeIcon icon={faSquareCheck} />
+          </button>
+        </p>
+      </div>
+
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 sm:m-10 md:m-20 ">
         {Object.values(options).map((value, index) => {
           return (
@@ -42,7 +67,20 @@ const Question = ({ quiz_question }) => {
         })}
       </div>
 
-      {option === correctAnswer ? Correct() : ""}
+      {(() => {
+        if (option.length === 0) {
+          return option === correctAnswer ? Correct() : "";
+        } else {
+          return "";
+        }
+      })()}
+      {(() => {
+        if (option.length !== 0) {
+          return option !== correctAnswer ? Incorrect() : "";
+        } else {
+          return Select();
+        }
+      })()}
       <ToastContainer />
     </div>
   );
