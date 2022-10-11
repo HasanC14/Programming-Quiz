@@ -10,27 +10,35 @@ const Question = ({ quiz_question }) => {
   const [option, setOption] = useState([]);
   const newQuestion = question.replace(/(<([^>]+)>)/gi, "");
   const Correct = () => {
-    // toast(`${correctAnswer} is The Correct Answer`);
     const Id = "id";
-    toast("Correct Answer", {
+    toast("Correct Answer Try next one", {
+      autoClose: 2000,
       toastId: Id,
+      theme: "dark",
     });
   };
   const Incorrect = () => {
-    // toast(`${option} is The Correct Answer`);
     const Id = "id";
     toast("Incorrect Answer Try Again", {
+      autoClose: 2000,
       toastId: Id,
+      theme: "dark",
     });
   };
   const Select = () => {
     const Id = "id";
     toast("Click on the Check Mark to see the Correct Answer", {
+      autoClose: 2500,
       toastId: Id,
+      theme: "dark",
     });
   };
   const DisplayCorrectAns = () => {
-    toast(`Correct Answer: ${correctAnswer}`);
+    toast(`Correct Answer: ${correctAnswer}`, {
+      position: "top-center",
+      autoClose: 2500,
+      theme: "dark",
+    });
   };
 
   return (
@@ -47,7 +55,7 @@ const Question = ({ quiz_question }) => {
       <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 sm:m-10 md:m-20 ">
         {Object.values(options).map((value, index) => {
           return (
-            <div className="rounded border border-gray-200 p-10 ">
+            <div className="rounded-lg border border-gray-300 p-10 hover:bg-violet-200 ease-in-out">
               <input
                 type="radio"
                 id="bordered-radio-1"
@@ -58,7 +66,7 @@ const Question = ({ quiz_question }) => {
               />
               <label
                 htmlFor="bordered-radio-1"
-                className="py-4 ml-2 w-full font-medium text-gray-900 md:text-2xl sm:text-xl"
+                className="py-4 ml-2 w-full  font-medium text-gray-900 md:text-2xl sm:text-xl"
               >
                 {index + 1}.{value}
               </label>
@@ -66,14 +74,7 @@ const Question = ({ quiz_question }) => {
           );
         })}
       </div>
-
-      {(() => {
-        if (option.length === 0) {
-          return option === correctAnswer ? Correct() : "";
-        } else {
-          return "";
-        }
-      })()}
+      {option === correctAnswer ? Correct() : ""}
       {(() => {
         if (option.length !== 0) {
           return option !== correctAnswer ? Incorrect() : "";
