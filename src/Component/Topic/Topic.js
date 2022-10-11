@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 const Topic = ({ topic }) => {
   const { logo, name, total, id } = topic;
   return (
-    <div className="card flex justify-between p-10 rounded-lg">
+    <div className="card grid grid-cols-1 p-10 rounded-lg">
       <div className="card-img flex justify-center align-middle">
-        <img src={logo} alt="topic-img" className="w-60" />
+        <img src={logo} alt="topic-img" className="w-48" />
       </div>
-      <div className="card-details">
+      <div className="card-details mt-5">
         <div>
-          <div className="card-text">
+          <div className="card-text text-center">
             <p className="text-5xl">{name}</p>
             <p className="md:text-2xl">Total {total} Quizzes</p>
           </div>

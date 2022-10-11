@@ -11,7 +11,7 @@ const Home = () => {
       <section className="mt-8">
         <Header></Header>
       </section>
-      <div className="grid md:grid-cols-2 grid-cols-1 m-10 gap-4">
+      <div className="grid md:grid-cols-2 grid-cols-1 m-10 gap-14">
         {Topics.map((topic) => (
           <Topic key={topic.id} topic={topic}></Topic>
         ))}
