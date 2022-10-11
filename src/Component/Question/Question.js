@@ -3,7 +3,6 @@ import { toast, ToastContainer } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
-import "./Question.css";
 
 const Question = ({ quiz_question }) => {
   const { options, correctAnswer, id, question } = quiz_question;

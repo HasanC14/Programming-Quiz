@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Header.css";
+import "./Navbar.css";
 
-const Header = () => {
+const Navbar = () => {
   return (
-    <div className="header p-6">
+    <div className="Navbar p-6">
       <div className="flex justify-between lg:ml-40 lg:mr-40">
         <div className="logo lg:text-4xl md:text-3xl sm:text-xl">
           Programming QUIZ
@@ -14,10 +14,10 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to={"/statistics"}
+            to={"/chart"}
             className="ml-5 hover:text-white hover:font-bold"
           >
-            Statistics
+            Chart
           </NavLink>
           <NavLink
             to={"/blog"}
@@ -31,4 +31,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
