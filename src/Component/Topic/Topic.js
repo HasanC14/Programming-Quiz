@@ -8,9 +8,9 @@ const Topic = ({ topic }) => {
   return (
     <div className="card flex justify-between p-10 rounded-lg">
       <div className="card-img flex justify-center align-middle">
-        <img src={logo} alt="topic-img" className="md:w-60 sm:w-32" />
+        <img src={logo} alt="topic-img" className="w-60" />
       </div>
-      <div className="card-details flex sm:flex-col">
+      <div className="card-details">
         <div>
           <div className="card-text">
             <p className="text-5xl">{name}</p>
