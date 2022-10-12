@@ -5,9 +5,14 @@ import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
 
 const Question = ({ quiz_question }) => {
-  const { options, correctAnswer, id, question } = quiz_question;
+  const { options, correctAnswer, question } = quiz_question;
   const [option, setOption] = useState([]);
   const newQuestion = question.replace(/(<([^>]+)>)/gi, "");
+
+  // const score = (correct) => {
+  //   console.log(correct);
+  // };
+
   const Correct = () => {
     const Id = "id";
     toast("Correct Answer Try next one", {
@@ -16,6 +21,7 @@ const Question = ({ quiz_question }) => {
       theme: "dark",
     });
   };
+
   const Incorrect = () => {
     const Id = "id";
     toast("Incorrect Answer Try Again", {
@@ -43,7 +49,7 @@ const Question = ({ quiz_question }) => {
   return (
     <div>
       <div className="question_icon">
-        <p className="font-bold md:text-3xl sm:text-2xl mt-5 mb-5">
+        <p className="font-bold md:text-3xl text-2xl mt-5 text-center">
           Q. {newQuestion}{" "}
           <button onClick={DisplayCorrectAns}>
             <FontAwesomeIcon icon={faSquareCheck} />
@@ -51,7 +57,7 @@ const Question = ({ quiz_question }) => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 sm:m-10 md:m-20 ">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 m-10 md:m-20 ">
         {Object.values(options).map((value, index) => {
           return (
             <div className="rounded-lg border border-gray-300 p-10 hover:bg-violet-200 ease-in-out">
@@ -74,6 +80,7 @@ const Question = ({ quiz_question }) => {
         })}
       </div>
       {option === correctAnswer ? Correct() : ""}
+      {/* {option === correctAnswer ? score(correctAnswer) : ""} */}
       {(() => {
         if (option.length !== 0) {
           return option !== correctAnswer ? Incorrect() : "";

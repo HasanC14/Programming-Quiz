@@ -6,11 +6,11 @@ const Navbar = () => {
   return (
     <div className="Navbar p-6">
       <div className="flex justify-between lg:ml-40 lg:mr-40">
-        <div className="logo lg:text-4xl md:text-3xl sm:text-xl">
+        <NavLink to={"/"} className="logo lg:text-4xl md:text-3xl sm:text-xl">
           Programming QUIZ
-        </div>
+        </NavLink>
         <div className="link lg:text-2xl md:text-xl sm:text-lg">
-          <NavLink to={"/"} className="hover:text-white hover:font-bold">
+          <NavLink to={"/"} className=" hover:text-white hover:font-bold">
             Home
           </NavLink>
           <NavLink

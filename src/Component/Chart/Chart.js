@@ -12,7 +12,6 @@ import {
 const Chart = () => {
   const LoadData = useLoaderData();
   const Topics = LoadData.data;
-  console.log(Topics);
   return (
     <div className="mt-40">
       <ResponsiveContainer width="95%" height={400}>
