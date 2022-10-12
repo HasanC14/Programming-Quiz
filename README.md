@@ -12,7 +12,7 @@ https://github.com/HasanC14
 
 # Description
 
-An interactive quiz website made with tailwind and react
+An interactive quiz website made with React JS and Tailwind CSS
 
 # Features
 

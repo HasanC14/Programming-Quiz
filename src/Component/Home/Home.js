@@ -8,7 +8,7 @@ const Home = () => {
   const Topics = LoadTopics.data;
   return (
     <div>
-      <section className="mt-8">
+      <section>
         <Header></Header>
       </section>
       <div className="grid md:grid-cols-2 grid-cols-1 m-10 gap-14">
